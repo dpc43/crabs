@@ -6,8 +6,8 @@ Dependencies: None.
 Call: T=getTranslation(dx,dy)
 Side Effects: None
 
-Function: drawLine: matrix 1, matrix 2, color
-Purpose: draws a line from the point of matrix 1 to the point matrix 2 with the given color
+Function: drawLine: vector, vector, color-> graphics handle
+Purpose: draws a line from one vector to another the vector with the given color
 Dependencies: None.
 Call: handle=drawLine(p,q,myColor)
 Side Effects: Draws a line from the points p and q with the entered color
