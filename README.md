@@ -12,3 +12,8 @@ Dependencies: None.
 Call: handle=drawLine(p,q,myColor)
 Side Effects: Draws a line from the points p and q with the entered color
 
+Function: getCapt: integer-> captain at origin
+Purpose: creates the captain with the given size
+Dependencies: None.
+Call: capt=getCapt(captSize)
+Side Effects: Draws the captain at the origin
