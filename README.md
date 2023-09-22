@@ -17,3 +17,9 @@ Purpose: creates the captain with the given size
 Dependencies: None.
 Call: capt=getCapt(captSize)
 Side Effects: Draws the captain at the origin
+
+Function: drawMap: image file->height, width
+Purpose: creates the background for the game using the image and creates the coordinate system
+Dependancies: None.
+Call: [height,width]=drawMap(imageName)
+Side Effects: Draws the background for the game
