@@ -19,4 +19,22 @@ sizeCapt = 50;
 
 captainGraphics = drawCapt (xCapt, yCapt, thetaCapt, sizeCapt)
 %*******************************************************
+cmd="null";
+while(cmd!="Q")
+  cmd=kbhit();
+  if(cmd=="w"||cmd=="a"||cmd=="d")
+
+   for(i=1:length(captainGraphics)
+     set( captainGraphics(i),'Visible','off');
+   endfor
+
+  %move capt
+  [xCapt,yCapt,thetaCapt]=moveCapt(cmd,xCapt,yCapt,thetaCapt);
+  %draw new capt
+  captainGraphics=drawCapt(xCapt,yCapt,thetaCapt,sizeCapt);
+
+  endif
+endwhile
+
+close all
 endfunction
