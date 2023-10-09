@@ -19,4 +19,3 @@ yCapt = y;
 thetaCapt = theta;
 endif
 endfunction
-

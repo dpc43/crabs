@@ -17,15 +17,15 @@ sizeCapt = 50;
 % Put your call to drawCapt() here ..... You must give drawCapt its
 % input and output arguments.
 
-captainGraphics = drawCapt (xCapt, yCapt, thetaCapt, sizeCapt)
+captainGraphics = drawCapt (xCapt, yCapt, thetaCapt, sizeCapt);
 %*******************************************************
 cmd="null";
 while(cmd!="Q")
   cmd=kbhit();
   if(cmd=="w"||cmd=="a"||cmd=="d")
 
-   for(i=1:length(captainGraphics)
-     set( captainGraphics(i),'Visible','off');
+   for i=1:length(captainGraphics)
+     set(captainGraphics(i),'Visible','off');
    endfor
 
   %move capt
@@ -35,6 +35,5 @@ while(cmd!="Q")
 
   endif
 endwhile
-
 close all
 endfunction
