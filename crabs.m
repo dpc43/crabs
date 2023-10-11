@@ -13,7 +13,7 @@ sizeCapt = 50;
 xCrab=1000;
 yCrab=1000;
 thetaCrab=-pi/2;
-sizeCrab=25;
+sizeCrab=50;
 
 
 % Draw the captain and initialize graphics handles
