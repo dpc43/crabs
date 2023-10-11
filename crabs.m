@@ -9,7 +9,11 @@ yCapt = 1000;
 thetaCapt = -pi/2;
 sizeCapt = 50;
 
-
+%Initialize crab location, heading and size
+xCrab=1000;
+yCrab=1000;
+thetaCrab=-pi/2;
+sizeCrab=25;
 
 
 % Draw the captain and initialize graphics handles
@@ -18,6 +22,7 @@ sizeCapt = 50;
 % input and output arguments.
 
 captainGraphics = drawCapt (xCapt, yCapt, thetaCapt, sizeCapt);
+crabGraphics=drawCrab(xCrab,yCrab,thetaCrab,sizeCrab);
 %*******************************************************
 cmd="null";
 while(cmd!="Q")
