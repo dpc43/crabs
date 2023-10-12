@@ -5,10 +5,6 @@ function captainGraphics = drawCapt (xCapt , yCapt , thetaCapt , sizeCapt)
 % This function returns a vector of graphics handles called captainGrapics.
 % The ith  vector entry contains the graphics handle of ith line of the captain.
 
-% Use your code from last week to get the captain matrix
-% for a captain of dimension sizeCapt. Notice that
-% sizeCapt is a parameter passed into drawCapt.
-
 capt = getCapt(sizeCapt);
 
 %rotate captain

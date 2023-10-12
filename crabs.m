@@ -22,6 +22,7 @@ sizeCrab=50;
 % input and output arguments.
 
 captainGraphics = drawCapt (xCapt, yCapt, thetaCapt, sizeCapt);
+
 crabGraphics=drawCrab(xCrab,yCrab,thetaCrab,sizeCrab);
 %*******************************************************
 cmd="null";

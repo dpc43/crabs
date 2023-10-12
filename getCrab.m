@@ -3,10 +3,13 @@
 function crab = getCrab (crabSize)
 
 %Crab test
-crabPt1=[crabSize;crabSize;1]
-crabPt2=[-crabSize;crabSize;1]
+crabPt1=[crabSize;crabSize;1];
+crabPt2=[-crabSize;crabSize;1];
+crabPt3=[-crabSize;-crabSize;1];
+crabPt4=[crabSize;-crabSize;1];
+
 
 
 %captain matrix
-crab = [ crabtPt1, crabPt2];
+crab = [crabPt1, crabPt2,crabPt3,crabPt4];
 endfunction
