@@ -34,8 +34,15 @@ crab=T*crabRotated;
   pt2=crab( : , 2);
   pt3=crab(: , 3);
   pt4=crab(: , 4);
+  pt5=crab(: , 5);
+  pt6=crab(: , 6);
 
   % Draw the captain and set the return vector of graphics handles.
-   crabGraphics(1) = drawLine(pt1 , pt2 , "k");
-   crabGraphics(2)= drawLine(pt3, pt4, "k");
+   crabGraphics(1) = drawLine(pt1 , pt2 , "r");
+   crabGraphics(2)= drawLine(pt3, pt4, "r");
+   crabGraphics(3)= drawLine(pt1, pt4, "r");
+   crabGraphics(4)= drawLine(pt2, pt3, "r");
+   crabGraphics(5)= drawLine(pt1, pt5,"r");
+   crabGraphics(6)= drawLine(pt3, pt6,"r");
+
 endfunction
