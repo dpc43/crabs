@@ -9,15 +9,15 @@ elseif ( cmd == "j" ) %move left
 xCrab = x+dStep*sin(theta);
 yCrab = y;
 thetaCrab = theta;
-elseif ( cmd == "k" ) %move back good
-xCrab = x;
+elseif ( cmd == "k" ) %move back
+xCrab = x-dStep*cos(theta);
 yCrab = y-dStep*sin(theta);
 thetaCrab = theta;
 elseif ( cmd == "l" ) %move right
 xCrab = x-dStep*sin(theta);
 yCrab = y;
 thetaCrab = theta;
-elseif ( cmd == "," ) %rotate left good
+elseif ( cmd == "," ) %rotate left
 xCrab = x;
 yCrab = y;
 thetaCrab = theta - dTheta;

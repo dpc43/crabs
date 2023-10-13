@@ -34,7 +34,7 @@ while(cmd!="Q")
      set(captainGraphics(i),'Visible','off');
    endfor
    %move capt
-   [xCapt,yCapt,thetaCapt]=moveCapt(cmd,xCapt,yCapt,thetaCapt);
+   [xCapt,yCapt,thetaCapt]=moveCapt(cmd,xCapt,yCapt,thetaCapt,sizeCapt,mapHeight,mapWidth);
    %draw new capt
    captainGraphics=drawCapt(xCapt,yCapt,thetaCapt,sizeCapt);
    
@@ -44,9 +44,9 @@ while(cmd!="Q")
     set(crabGraphics(i),'Visible','off');
    endfor
 %move crab
-   [xCrab,yCrab,thetaCrab] = moveCrab(cmd,xCrab,yCrab,thetaCrab,sizeCrab);
+   [xCrab,yCrab,thetaCrab] = moveCrab(cmd,xCrab,yCrab,thetaCrab,sizeCrab,mapHeight,mapWidth);
 %draw new captain and crab
-   crabGraphics = drawCrab(xCrab,yCrab,thetaCrab,sizeCrab)
+   crabGraphics = drawCrab(xCrab,yCrab,thetaCrab,sizeCrab);
 
   endif
 endwhile
