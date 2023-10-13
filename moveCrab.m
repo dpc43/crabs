@@ -6,7 +6,7 @@ xCrab = x;
 yCrab = y;
 thetaCrab = theta +dTheta;
 elseif ( cmd == "j" ) %move left
-xCrab = x+dStep*cos(theta);
+xCrab = x+dStep*sin(theta);
 yCrab = y;
 thetaCrab = theta;
 elseif ( cmd == "k" ) %move back good
@@ -14,7 +14,7 @@ xCrab = x;
 yCrab = y-dStep*sin(theta);
 thetaCrab = theta;
 elseif ( cmd == "l" ) %move right
-xCrab = x-dStep*cos(theta);
+xCrab = x-dStep*sin(theta);
 yCrab = y;
 thetaCrab = theta;
 elseif ( cmd == "," ) %rotate left good
