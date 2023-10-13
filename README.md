@@ -1,7 +1,6 @@
 # crabs
 Funtion: getTranslation: integer1, integer2, -> matrix
-Purpose: number 1 represents the amount to shift in the x diretion and number 2 the amount to shift in the y diretion
-getTranslate uses these numbers to create a 3x3 matrix that will translate an objet stored as a 3x3 matrix when it multiplies the object matrix.
+Purpose: number 1 represents the amount to shift in the x direction and number 2 the amount to shift in the y direction. getTranslate uses these numbers to create a 3x3 matrix that will translate an object stored as a 3x3 matrix when it multiplies the object matrix.
 Dependencies: None.
 Call: T=getTranslation(dx,dy)
 Side Effects: None
@@ -23,3 +22,11 @@ Purpose: creates the background for the game using the image and creates the coo
 Dependancies: None.
 Call: [height,width]=drawMap(imageName)
 Side Effects: Draws the background for the game
+
+Funtion: getRotation: integer1 -> matrix
+Purpose: number 1 represents the amount to rotate the captain by. getRotation uses this number to create a 3x3 matrix that will rotate an object stored as a 3x3 matrix when it multiplies the object matrix.
+Dependencies: None.
+Call: R=getRotation(dTheta)
+Side Effects: None
+
+
