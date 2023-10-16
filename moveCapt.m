@@ -1,7 +1,9 @@
-function [ xCapt, yCapt, thetaCapt ] = moveCapt( cmd, x, y, theta );
+function [ xCapt, yCapt, thetaCapt ] = moveCapt( cmd, x, y, theta ,height,width);
 dTheta = pi/6;
 dStep = 50;
-if( cmd == "w" ) %move forward
+inBounds=isOnMap(x,y,width,height,30);
+if( cmd == "w" && inBounds==0) %move forward
+
 xCapt = x+dStep*cos(theta);
 yCapt = y+dStep*sin(theta);
 thetaCapt = theta;
