@@ -32,6 +32,7 @@ while(cmd!="Q")
 
    for i=1:length(captainGraphics)
      set(captainGraphics(i),'Visible','off');
+%     delete(captainGraphics(i));
    endfor
    %move capt
    [xCapt,yCapt,thetaCapt]=moveCapt(cmd,xCapt,yCapt,thetaCapt,sizeCapt,mapHeight,mapWidth);
