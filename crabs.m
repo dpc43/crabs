@@ -1,4 +1,4 @@
-function crabs ()
+function crabs (level)
 % Crabs is a kids computer game where a fisherman, called the captain,
 % hunts for a very clever and powerful crab.
 % Draw the game map and initialize map dimensions.
@@ -30,14 +30,26 @@ captainGraphics = drawCapt (xCapt, yCapt, thetaCapt, sizeCapt);
 crabGraphics=drawCrab(xCrab,yCrab,thetaCrab,sizeCrab);
 jellyGraphics=drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
 %*******************************************************
-cmd="null";
-while(cmd!="Q")
-  cmd=kbhit();
-  if(cmd=="w"||cmd=="a"||cmd=="d")
+while(1)
+% erase old jellyfish
+for i=1:length(jellyGraphics)
+delete(jellyGraphics(i));
+endfor
+% move jellyfish
+[xJelly,yJelly,thetaJelly] = moveJelly(level, xJelly, yJelly,thetaJelly, sizeJelly,mapHeight,mapWidth);
+% draw jellyfish
+jellyGraphics = drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
+
+
+  cmd=kbhit(1);
+  if(cmd=='Q')
+    break;
+  
+  
+  elseif(cmd=="w"||cmd=="a"||cmd=="d")
 
    for i=1:length(captainGraphics)
-     set(captainGraphics(i),'Visible','off');
-%     delete(captainGraphics(i));
+     delete(captainGraphics(i));
    endfor
    %move capt
    [xCapt,yCapt,thetaCapt]=moveCapt(cmd,xCapt,yCapt,thetaCapt,sizeCapt,mapHeight,mapWidth);
@@ -47,14 +59,16 @@ while(cmd!="Q")
   elseif (cmd == "i" || cmd == "j" || cmd == "k" || cmd == "l" || cmd ==",") % respond crabmoved
 %erase old crab
    for i=1:length(crabGraphics)
-    set(crabGraphics(i),'Visible','off');
+     delete(crabGraphics(i));
    endfor
 %move crab
    [xCrab,yCrab,thetaCrab] = moveCrab(cmd,xCrab,yCrab,thetaCrab,sizeCrab,mapHeight,mapWidth);
 %draw new captain and crab
    crabGraphics = drawCrab(xCrab,yCrab,thetaCrab,sizeCrab);
 
-  endif
+endif
+fflush(stdout);
+pause(.01)
 endwhile
 close all
 clear
