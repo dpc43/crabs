@@ -15,6 +15,11 @@ yCrab=1200;
 thetaCrab=-pi/2;
 sizeCrab=50;
 
+%Initialize jellyfish
+xJelly=rand*mapWidth;
+yJelly=0;
+thetaJelly=-pi/2;
+sizeJelly=25;
 
 % Draw the captain and initialize graphics handles
 %*********************************************************
@@ -22,8 +27,8 @@ sizeCrab=50;
 % input and output arguments.
 
 captainGraphics = drawCapt (xCapt, yCapt, thetaCapt, sizeCapt);
-
 crabGraphics=drawCrab(xCrab,yCrab,thetaCrab,sizeCrab);
+jellyGraphics=drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
 %*******************************************************
 cmd="null";
 while(cmd!="Q")
