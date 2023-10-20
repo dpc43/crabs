@@ -4,7 +4,7 @@ dStep = 50;
 inBounds=isOnMap(x,y,width,height,30);
 if( cmd == "w" && inBounds==0) %move forward
 
-xCapt = x+dStep*cos(theta);
+xCapt = x+dStep*cos(theta); 
 yCapt = y+dStep*sin(theta);
 thetaCapt = theta;
 elseif ( cmd == "d" ) %turn right
