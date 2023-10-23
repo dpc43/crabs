@@ -16,8 +16,8 @@ thetaCrab=-pi/2;
 sizeCrab=50;
 
 %Initialize jellyfish
-xJelly=rand*mapWidth;
-yJelly=0;
+xJelly=rand()*mapWidth;
+yJelly=25;
 thetaJelly=-pi/2;
 sizeJelly=25;
 
