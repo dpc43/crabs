@@ -1,17 +1,24 @@
-function [ xCapt, yCapt, thetaCapt ] = moveCapt( cmd, x, y, theta ,sizeCrab,height,width);
+function [ xCapt, yCapt, thetaCapt ] = moveCapt( cmd, x, y, theta ,sizeCapt,height,width);
 dTheta = pi/6;
 dStep = 50;
-inBounds=isOnMap(x,y,width,height,sizeCrab);
-if( cmd == "w" && inBounds==1) %move forward
+if(cmd=="w")
+xTemp = x+dStep*cos(theta); 
+yTemp = y+dStep*sin(theta);
+if(isOnMap(xTemp,yTemp,width,height,sizeCapt))
+  xCapt=xTemp;
+  yCapt=yTemp;
+  thetaCapt=theta;
+else
+   xCapt=x;
+   yCapt=y;
+   thetaCapt=theta;
 
-xCapt = x+dStep*cos(theta); 
-yCapt = y+dStep*sin(theta);
-thetaCapt = theta;
-elseif ( cmd == "d" && inBounds==1) %turn right
+endif
+elseif ( cmd == "d") %turn right
 xCapt = x;
 yCapt = y;
 thetaCapt = theta+dTheta;
-elseif ( cmd == "a" && inBounds==1) %turn left
+elseif ( cmd == "a") %turn left
 xCapt = x;
 yCapt = y;
 thetaCapt = theta - dTheta;
