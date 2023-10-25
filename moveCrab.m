@@ -1,6 +1,10 @@
 function [ xCrab, yCrab, thetaCrab ] = moveCrab( cmd, x, y, theta );
 dTheta = pi/6;
 dStep = 50;
+
+
+
+
 if( cmd == "i" ) %rotate right
 xCrab = x;
 yCrab = y;

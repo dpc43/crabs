@@ -29,12 +29,23 @@ sizeJelly=25;
 captainGraphics = drawCapt (xCapt, yCapt, thetaCapt, sizeCapt);
 crabGraphics=drawCrab(xCrab,yCrab,thetaCrab,sizeCrab);
 jellyGraphics=drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
+hp=text(60,75,'Hp-','FontSize',14,'Color','red');
+score=text(300,75,'Score-','FontSize',14,'Color','red');
+
 %*******************************************************
 while(1)
+delete(hp);
 % erase old jellyfish
 for i=1:length(jellyGraphics)
 delete(jellyGraphics(i));
 endfor
+
+
+
+%text
+hp=text(60,75,'Hp-','FontSize',14,'Color','red');
+score=text(300,75,'Score-','FontSize',14,'Color','red');
+
 % move jellyfish
 [xJelly,yJelly,thetaJelly] = moveJelly(level, xJelly, yJelly,thetaJelly, sizeJelly,mapHeight,mapWidth);
 % draw jellyfish
