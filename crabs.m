@@ -32,8 +32,28 @@ captainGraphics = drawCapt (xCapt, yCapt, thetaCapt, sizeCapt);
 crabGraphics=drawCrab(xCrab,yCrab,thetaCrab,sizeCrab);
 jellyGraphics=drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
 
+healthLoc = [100,100];
+crabsCaughtLoc = [100,175];
+healthStatus = text(healthLoc(1), healthLoc(2), strcat('Health = ', ...
+num2str(healthCapt)), 'FontSize', 12, 'Color', 'red');
+crabsCaughtStatus = text(crabsCaughtLoc(1), crabsCaughtLoc(2), ...
+strcat('Crabs Caught = ',num2str(crabsCaught)), 'FontSize', 12, 'Color', 'red');
+
+
+
 %*******************************************************
 while(1)
+
+%remove old and plot new health and points status to screen
+delete(healthStatus);
+delete(crabsCaughtStatus);
+healthStatus = text(healthLoc(1), healthLoc(2), strcat('Health = ', ...
+num2str(healthCapt)), 'FontSize', 12, 'Color', 'red');
+crabsCaughtStatus = text(crabsCaughtLoc(1), crabsCaughtLoc(2),
+strcat('Crabs Caught = ' ...
+,num2str(crabsCaught)), 'FontSize', 12, 'Color', 'red');
+
+
 % erase old jellyfish
 for i=1:length(jellyGraphics)
 delete(jellyGraphics(i));
@@ -43,6 +63,21 @@ if ( getDist(xJelly,yJelly,xCapt,yCapt) < 3*sizeCapt )
 healthCapt = healthCapt - jellySting;
 endif
 
+if( getDist(xNet,yNet,xCrab,yCrab) < 2*sizeCapt ) %crab is caught
+%keep track of how many crabs are caught
+crabsCaught = crabsCaught +1;
+%erase old crab
+for i=1:length(crabGraphics)
+delete(crabGraphics(i));
+endfor
+%create a new crab. initialize new crab location, heading and size
+xCrab = rand*mapWidth;
+yCrab = rand*mapHeight;
+thetaCrab = -pi/2;
+sizeCrab = 50;
+%draw new crab
+crabGraphics = drawCrab(xCrab,yCrab,thetaCrab,sizeCrab);
+endif
 %text
 
 % move jellyfish
