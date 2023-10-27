@@ -8,8 +8,15 @@ function capt = getCapt (captSize)
 % In the sketch below, the captain is drawn facing you with his right hand holding the spear.
 % The sketch shows him with his points numbered.
 %{
-            Right Hand     Spear Tip
-    14 ______12____________13
+                            15------16
+                            |        |                       
+                            |        |
+                            |        |
+            Right Hand      |        |
+    14 ______12____________13    20   17
+                            |        |
+                            |        |
+                           19-------18
                 \
                   \
                     \
@@ -51,10 +58,20 @@ captPt12 = [ 0; -2*captSize; 1]; %right
 captPt13=[ 3*captSize; -2*captSize; 1]; % tip
 captPt14=[ -captSize; -2*captSize; 1];
 
+captPt13=[ 3*captSize; -2*captSize; 1];
+captPt14=[ -captSize; -2*captSize; 1];
+captPt15=[ 3*captSize; -4*captSize; 1];
+captPt16=[ 5*captSize; -4*captSize; 1];
+captPt17=[ 5*captSize; -2*captSize; 1];
+captPt18=[ 5*captSize; 0; 1];
+captPt19=[3*captSize;0;1];
+captPt20=[4*captSize;-2*captSize;1];
+
+
 %net in draw capt return xnet, y net
 %captain matrix
 capt = [ captPt1, captPt2, captPt3, captPt4, captPt5, captPt6, captPt7, ...
-captPt8, captPt9, captPt10, captPt11, captPt12, captPt13, captPt14];
+captPt8, captPt9, captPt10, captPt11, captPt12, captPt13, captPt14 captPt15, captPt16, captPt17, captPt18, captPt19,captPt20];
 endfunction
 
 
