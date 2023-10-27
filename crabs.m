@@ -8,7 +8,8 @@ xCapt = 1000;
 yCapt = 750;
 thetaCapt = -pi/2;
 sizeCapt = 50;
-
+healthCapt=100;
+crabsCaught=0;
 %Initialize crab location, heading and size
 xCrab=1000;
 yCrab=1200;
@@ -20,6 +21,7 @@ xJelly=rand()*mapWidth;
 yJelly=25;
 thetaJelly=-pi/2;
 sizeJelly=25;
+jellySting=2;
 
 % Draw the captain and initialize graphics handles
 %*********************************************************
@@ -29,22 +31,19 @@ sizeJelly=25;
 captainGraphics = drawCapt (xCapt, yCapt, thetaCapt, sizeCapt);
 crabGraphics=drawCrab(xCrab,yCrab,thetaCrab,sizeCrab);
 jellyGraphics=drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
-hp=text(60,75,'Hp-','FontSize',14,'Color','red');
-score=text(300,75,'Score-','FontSize',14,'Color','red');
 
 %*******************************************************
 while(1)
-delete(hp);
 % erase old jellyfish
 for i=1:length(jellyGraphics)
 delete(jellyGraphics(i));
 endfor
 
-
+if ( getDist(xJelly,yJelly,xCapt,yCapt) < 3*sizeCapt )
+healthCapt = healthCapt - jellySting;
+endif
 
 %text
-hp=text(60,75,'Hp-','FontSize',14,'Color','red');
-score=text(300,75,'Score-','FontSize',14,'Color','red');
 
 % move jellyfish
 [xJelly,yJelly,thetaJelly] = moveJelly(level, xJelly, yJelly,thetaJelly, sizeJelly,mapHeight,mapWidth);
