@@ -29,7 +29,7 @@ jellySting=2;
 % Put your call to drawCapt() here ..... You must give drawCapt its
 % input and output arguments.
 
-captainGraphics = drawCapt (xCapt, yCapt, thetaCapt, sizeCapt);
+[captainGraphics,xNet,yNet] = drawCapt (xCapt, yCapt, thetaCapt, sizeCapt);
 crabGraphics=drawCrab(xCrab,yCrab,thetaCrab,sizeCrab);
 jellyGraphics=drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
 
@@ -79,7 +79,7 @@ jellyGraphics = drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
    %move capt
    [xCapt,yCapt,thetaCapt]=moveCapt(cmd,xCapt,yCapt,thetaCapt,sizeCapt,mapHeight,mapWidth);
    %draw new capt
-   captainGraphics=drawCapt(xCapt,yCapt,thetaCapt,sizeCapt);
+   [captainGraphics,xNet,yNet]=drawCapt(xCapt,yCapt,thetaCapt,sizeCapt);
    
    endif
  
