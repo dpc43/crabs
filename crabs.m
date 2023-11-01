@@ -91,10 +91,12 @@ jellyGraphics = drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
       delete(crabGraphics(i));
     endfor
     %create a new crab. initialize new crab location, heading and size
-      xCrab=rand*mapWidth;
-      yCrab=rand*mapHeight;
-      thetaCrab=-pi/2;
-      sizeCrab=50;
+    xCrab=rand*mapWidth;
+    yCrab=rand*mapHeight;
+    thetaCrab=-pi/2;
+    sizeCrab=50;
+    crabGraphics=drawCrab(xCrab,yCrab,thetaCrab,sizeCrab);
+
       
     endif
    
