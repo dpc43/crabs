@@ -1,29 +1,30 @@
 function crabs (level)
 
-numCrabs=level;
-numJelly=level;
+numCrabs = level;
+numJelly = level;
 % Crabs is a kids computer game where a fisherman, called the captain,
 % hunts for a very clever and powerful crab.
 % Draw the game map and initialize map dimensions.
-[mapHeight , mapWidth] = drawMap( "BGImage.png" );
+[mapHeight, mapWidth] = drawMap("BGImage.png");
 % Initialize captain location, heading and size
 xCapt = 1000;
 yCapt = 750;
 
 thetaCapt = -pi/2;
 sizeCapt = 50;
-healthCapt=100;
-crabsCaught=0;
+healthCapt = 100;
+crabsCaught = 0;
 %Initialize crab location, heading and size
-xCrab = rand(1,numCrabs)*mapWidth;
-yCrab = 3*mapHeight/4 + rand(1,numCrabs)*mapHeight/4;
+xCrab = rand(1, numCrabs) * mapWidth;
+yCrab = 3 * mapHeight / 4 + rand(1,numCrabs)*mapHeight/4;
 thetaCrab = ones(1,numCrabs)*(-pi/2);
 crabsCaught = 0;
 sizeCrab = 50;
 isCrabsCaught=zeros(1,numCrabs);
 
 %Initialize jellyfish
-xJelly=rand(1,numJelly)*mapWidth;
+xJelly=rand(1,numJelly)*mapWidth;  
+
 yJelly=rand(1,numJelly)*mapHeight;
 thetaJelly=-pi/2;
 sizeJelly=25;
@@ -118,17 +119,17 @@ endfor
    
    
  for p=1:numCrabs
-   if(!isCrabsCaught(p) && getDist(xNet,yNet,xCrab(p),yCrab(p))<7*sizeCapt) %crab is caught
+   if(!isCrabsCaught(p) && getDist(xNet,yNet,xCrab(p),yCrab(p))<7*sizeCapt)
  
     %erase old crab
     for i=1:length(crabGraphics(:,p))
       delete(crabGraphics(i,p));
     endfor
     % compute the crab’s angle to the net with getTheta and the components suggested above
-    thetaCrab(p)=getTheta(xCrab(p),yCrab(p));
+    thetaCrab(p)=getTheta(xNet-xCrab(p),yNet-yCrab(p));
     % call moveCrab(). To move backwards use cmd =”k”
     cmd="k";
-    [xCrab(p),yCrab(p),thetaCrab(p)]=moveCrab(cmd,xCrab(p),yCrab(p),thetaCrab(p));
+    [xCrab(p),yCrab(p),thetaCrab(p)]=moveCrab(cmd,xCrab(p),yCrab(p),thetaCrab(p),sizeCrab,mapHeight,mapWidth);
     
     % draw the crab as already done in crabs
     crabGraphics(:,p)=drawCrab(xCrab(p),yCrab(p),thetaCrab(p),sizeCrab);

@@ -1,4 +1,4 @@
-function [ xCrab, yCrab, thetaCrab ] = moveCrab( cmd, x, y, theta );
+function [ xCrab, yCrab, thetaCrab ] = moveCrab( cmd, x, y, theta,sizeCrab,height,width );
 dTheta = pi/6;
 dStep = 50;
 
@@ -14,9 +14,20 @@ xCrab = x+dStep*sin(theta);
 yCrab = y;
 thetaCrab = theta;
 elseif ( cmd == "k" ) %move back
-xCrab = x-dStep*cos(theta);
-yCrab = y-dStep*sin(theta);
+xTemp = x-dStep*cos(theta);
+yTemp = y-dStep*sin(theta);
 thetaCrab = theta;
+
+if(isOnMap(xTemp,yTemp,width,height,sizeCrab))
+  xCrab=xTemp;
+  yCrab=yTemp;
+  thetaCrab=theta;
+else
+   xCrab=x;
+   yCrab=y;
+   thetaCrab=theta;
+endif
+
 elseif ( cmd == "l" ) %move right
 xCrab = x-dStep*sin(theta);
 yCrab = y;
