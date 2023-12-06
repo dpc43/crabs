@@ -1,6 +1,6 @@
 function [ xCapt, yCapt, thetaCapt ] = moveCapt( cmd, x, y, theta ,sizeCapt,height,width);
 dTheta = pi/6;
-dStep = 50;
+dStep = 75;
 if(cmd=="w")
 xTemp = x+dStep*cos(theta); 
 yTemp = y+dStep*sin(theta);

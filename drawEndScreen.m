@@ -14,7 +14,7 @@ textHandle=text(textLoc(1), textLoc(2), 'Play again? Y/N', 'FontSize', 40, 'Colo
 while (1)
 %focus on command window
 commandwindow();
-cmd=kbhit(1);
+cmd=kbhit(.1);
 if( cmd == 'y' || cmd == 'Y')
 restart = 1;
 break;

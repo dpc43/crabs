@@ -1,13 +1,9 @@
 function jellyHandle = drawJelly (x,y,theta,size)
-
   jelly = getJelly(size);
-
   R = getRotation(theta);
   jellyRotated = R*jelly;
-
   T = getTranslation(x,y);
   jelly = T*jellyRotated;
-
   pt1=jelly(:,1);
   pt2=jelly(:,2);
   pt3=jelly(:,3);
@@ -21,7 +17,6 @@ function jellyHandle = drawJelly (x,y,theta,size)
   pt11=jelly(:,11);
   pt12=jelly(:,12);
   pt13=jelly(:,13);
-
   jellyHandle(1)=drawLine(pt1,pt2,'m');
   jellyHandle(2)=drawLine(pt2,pt3,'m');
   jellyHandle(3)=drawLine(pt3,pt4,'m');
@@ -34,6 +29,5 @@ function jellyHandle = drawJelly (x,y,theta,size)
   jellyHandle(10)=drawLine(pt12,pt13,'m');
   jellyHandle(11)=drawLine(pt13,pt5,'m');
   jellyHandle(12)=drawLine(pt12,pt4,'m');
-
 
 endfunction
