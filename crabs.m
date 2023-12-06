@@ -3,7 +3,7 @@ playGame=1;
 while(playGame)
 %draw start screen
 level=drawStartScreen("startScreen.png");
-while(1)
+crabsCaught = 0;
 
 numCrabs = level;
 numJelly = level;
@@ -18,7 +18,6 @@ yCapt = 750;
 thetaCapt = -pi/2;
 sizeCapt = 50;
 healthCapt = 100;
-crabsCaught = 0;
 %Initialize crab location, heading and size
 xCrab = rand(1, numCrabs) * mapWidth;
 yCrab = 3 * mapHeight / 4 + rand(1,numCrabs)*mapHeight/4;
@@ -58,9 +57,11 @@ crabsCaughtStatus = text(crabsCaughtLoc(1), crabsCaughtLoc(2), ...
 strcat('Crabs Caught = ',num2str(crabsCaught)), 'FontSize', 12, 'Color', 'red');
 
 
+while(crabsCaught!=level)
 
 %*******************************************************
-while(crabsCaught!=level)
+%while(crabsCaught!=level)
+commandwindow();
 
 %remove old and plot new health and points status to screen
 delete(healthStatus);
@@ -91,6 +92,7 @@ endfor
 
   cmd=kbhit(1);
   if(cmd=='Q')
+    
     break;
   
   
@@ -145,11 +147,11 @@ endfor
 
 fflush(stdout);
 pause(.01)
-endwhile
+%endwhile
 
+endwhile
 
 playGame=drawEndScreen("startScreen.png",crabsCaught,numCrabs);
-endwhile
 endwhile
 close all
 clear

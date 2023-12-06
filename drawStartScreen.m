@@ -4,7 +4,7 @@ drawMap(imgName);
 hold on
 % write myMessage at messageLoc
 myMessage = ['Enter a level 1-9 '];
-messageLoc = [450,750];
+messageLoc = [200,550];
 myText = text(messageLoc(1), messageLoc(2), myMessage, 'FontSize', 30, 'Color', 'red');
 level = getLevel();
 % delete the previous message and write a new one.
