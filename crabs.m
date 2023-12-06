@@ -1,4 +1,9 @@
-function crabs (level)
+function crabs ()
+playGame=1;
+while(playGame)
+%draw start screen
+level=drawStartScreen("startScreen.png");
+while(1)
 
 numCrabs = level;
 numJelly = level;
@@ -102,9 +107,6 @@ endfor
  endif
  
  
- 
- 
- 
    for k=1:numCrabs
    if(!isCrabsCaught(k) && getDist(xNet,yNet,xCrab(k),yCrab(k))<2*sizeCapt) %crab is caught
     %keep track of how many crabs are caught
@@ -143,6 +145,11 @@ endfor
 
 fflush(stdout);
 pause(.01)
+endwhile
+
+
+playGame=drawEndScreen("startScreen.png",crabsCaught,numCrabs);
+endwhile
 endwhile
 close all
 clear
