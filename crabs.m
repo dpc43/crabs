@@ -33,6 +33,14 @@ thetaJelly=-pi/2;
 sizeJelly=25;
 jellySting=5;
 
+%Initalize healthPowerUp
+xHealth=rand(1,1)*mapWidth;
+yHealth=rand(1,1)*mapHeight;
+thetaHealth=-pi/2;
+sizeHealth=25;
+healthRecovery=25;
+
+
 % Draw the captain and initialize graphics handles
 [captainGraphics,xNet,yNet] = drawCapt (xCapt, yCapt, thetaCapt, sizeCapt);
 
@@ -45,6 +53,9 @@ jellySting=5;
   for j=1:numJelly
     jellyGraphics(:,j)=drawJelly(xJelly(j),yJelly(j),thetaJelly,sizeJelly);
   endfor
+
+%draw healthPowerUp 
+healthPowerUpGraphics=drawHealthPowerUp(xHealth,yHealth,thetaHealth,sizeHealth);
 
 %write text to screen
 healthLoc = [100,100];
