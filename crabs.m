@@ -31,13 +31,13 @@ xJelly=rand(1,numJelly)*mapWidth;
 yJelly=rand(1,numJelly)*mapHeight;
 thetaJelly=-pi/2;
 sizeJelly=25;
-jellySting=5;
+jellySting=10;
 
 %Initalize healthPowerUp
 xHealth=rand(1,1)*mapWidth;
 yHealth=rand(1,1)*mapHeight;
 thetaHealth=-pi/2;
-sizeHealth=25;
+sizeHealth=50;
 healthRecovery=25;
 
 
@@ -94,6 +94,22 @@ endif
 jellyGraphics(:,j) = drawJelly(xJelly(j),yJelly(j),thetaJelly,sizeJelly);
 
 endfor
+
+
+%erase old healthPowerUp
+delete(healthPowerUpGraphics);
+
+
+
+% move health
+[xHealth,yHealth,thetaHealth] = moveHealthPowerUp(level, xHealth, yHealth,thetaHealth, sizeHealth,mapHeight,mapWidth);
+
+% draw health
+healthPowerUpGraphics=drawHealthPowerUp(xHealth,yHealth,thetaHealth,sizeHealth);
+
+if (getDist(xHealth,yHealth,xCapt,yCapt) < 3*sizeCapt )
+healthCapt = healthCapt + healthRecovery;
+endif
 
 %read kbhd commands
   cmd=kbhit(1);

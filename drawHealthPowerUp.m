@@ -9,9 +9,10 @@ function healthHandle = drawHealthPowerUp (x,y,theta,size)
   pt3=health(:,3);
   pt4=health(:,4);
   
-  healthHandle(1)=drawLine(pt1,pt2,'m');
-  healthHandle(2)=drawLine(pt2,pt3,'m');
-  healthHandle(3)=drawLine(pt3,pt4,'m');
-  
+  healthHandle(1)=drawLine(pt1,pt2,'k');
+  healthHandle(2)=drawLine(pt2,pt3,'k');
+  healthHandle(3)=drawLine(pt3,pt4,'k');
+  healthHandle(4)=drawLine(pt4,pt1,'k');
+
 
 endfunction

@@ -6,7 +6,7 @@ myMessage=['Good Job! You Caught ', num2str(crabsCaught), ' out of ', ...
 num2str(numCrabs),' crabs!' ];
 textLoc = [100,550];
 textHandle=text(textLoc(1), textLoc(2), myMessage, 'FontSize', 30, 'Color', 'red');
-pause(5)
+pause(2)
 delete(textHandle);
 textLoc = [200,550];
 textHandle=text(textLoc(1), textLoc(2), 'Play again? Y/N', 'FontSize', 40, 'Color', 'red');
