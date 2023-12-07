@@ -66,12 +66,12 @@ captPt17=[ 5*captSize; -2*captSize; 1];
 captPt18=[ 5*captSize; 0; 1];
 captPt19=[3*captSize;0;1];
 captPt20=[4*captSize;-2*captSize;1];
-
+captPt21=[2*captSize-captSize/2;captSize/2;1];
 
 %net in draw capt return xnet, y net
 %captain matrix
 capt = [ captPt1, captPt2, captPt3, captPt4, captPt5, captPt6, captPt7, ...
-captPt8, captPt9, captPt10, captPt11, captPt12, captPt13, captPt14 captPt15, captPt16, captPt17, captPt18, captPt19,captPt20];
+captPt8, captPt9, captPt10, captPt11, captPt12, captPt13, captPt14 captPt15, captPt16, captPt17, captPt18, captPt19,captPt20,captPt21];
 endfunction
 
 

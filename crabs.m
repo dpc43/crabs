@@ -38,11 +38,21 @@ xHealth=rand(1,1)*mapWidth;
 yHealth=rand(1,1)*mapHeight;
 thetaHealth=-pi/2;
 sizeHealth=50;
-healthRecovery=25;
-
+healthRecovery=10;
+isHealthCaught=0;
 
 % Draw the captain and initialize graphics handles
-[captainGraphics,xNet,yNet] = drawCapt (xCapt, yCapt, thetaCapt, sizeCapt);
+[captainGraphics,xNet,yNet,xMouth,yMouth] = drawCapt (xCapt, yCapt, thetaCapt, sizeCapt);
+
+%initialize and draw bubbles
+maxBubbleSize = 30;
+numBubbles=6;
+xBubble = xMouth*ones(1,numBubbles);
+yBubble = yMouth*rand(1,numBubbles);
+sizeBubble = maxBubbleSize*rand(1,numBubbles);
+for b=1:numBubbles
+bubbleGraphics(b)=drawBubble(xBubble(b),yBubble(b),sizeBubble(b));
+endfor
 
 %draw crabs
   for k=1:numCrabs  
@@ -72,7 +82,6 @@ commandwindow();
 
 %remove old and plot new health and points status to screen
 delete(healthStatus);
-delete(crabsCaughtStatus);
 healthStatus = text(healthLoc(1), healthLoc(2), strcat('Health = ', num2str(healthCapt)), 'FontSize', 12, 'Color', 'red');
 crabsCaughtStatus = text(crabsCaughtLoc(1), crabsCaughtLoc(2), strcat('Crabs Caught = ',num2str(crabsCaught)), 'FontSize', 12, 'Color', 'red');
 
@@ -97,20 +106,24 @@ endfor
 
 
 %erase old healthPowerUp
+
+if (!isHealthCaught && getDist(xHealth,yHealth,xCapt,yCapt) < 3*sizeCapt )
+healthCapt = healthCapt + healthRecovery;
+isHealthCaught=1;
 delete(healthPowerUpGraphics);
 
+endif
 
+
+if(!isHealthCaught)
+delete(healthPowerUpGraphics);
 
 % move health
 [xHealth,yHealth,thetaHealth] = moveHealthPowerUp(level, xHealth, yHealth,thetaHealth, sizeHealth,mapHeight,mapWidth);
 
 % draw health
 healthPowerUpGraphics=drawHealthPowerUp(xHealth,yHealth,thetaHealth,sizeHealth);
-
-if (getDist(xHealth,yHealth,xCapt,yCapt) < 3*sizeCapt )
-healthCapt = healthCapt + healthRecovery;
 endif
-
 %read kbhd commands
   cmd=kbhit(1);
   if(cmd=='Q')
@@ -121,10 +134,20 @@ endif
    endfor
    %move capt
    [xCapt,yCapt,thetaCapt]=moveCapt(cmd,xCapt,yCapt,thetaCapt,sizeCapt,mapHeight,mapWidth);
+   
    %draw new capt
-   [captainGraphics,xNet,yNet]=drawCapt(xCapt,yCapt,thetaCapt,sizeCapt);
+   [captainGraphics,xNet,yNet,xMouth,yMouth]=drawCapt(xCapt,yCapt,thetaCapt,sizeCapt);
   endif
- 
+ for b=1:numBubbles
+   %delete old bubbles
+   delete(bubbleGraphics(b));
+   %move bubble
+   [xBubble(b),yBubble(b)] = moveBubble(xBubble(b), yBubble(b), ...
+   xMouth, yMouth, maxBubbleSize);
+   %draw bubble
+   bubbleGraphics(b) = drawBubble(xBubble(b),yBubble(b),sizeBubble(b));
+   endfor
+   
 %check if a crab is caught
    for k=1:numCrabs
     if(!isCrabsCaught(k) && getDist(xNet,yNet,xCrab(k),yCrab(k))<2*sizeCapt)
